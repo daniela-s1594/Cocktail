@@ -4,9 +4,18 @@
 }
 
 .container {
-  width: 100vw;
-  height: 100vh;
-  background-color: #0c1821;
+  justify-content: space-between;
+  width: auto;
+  height: auto;
+  background-color: #0C1821;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1em;
+  justify-content: stretch;
+  margin-bottom: 3%;
 }
 
 .card {
@@ -14,7 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #0c1821;
+  background-color: #0C1821;
   border-style: double;
   border-color: #af7595;
   border-width: 10px;
