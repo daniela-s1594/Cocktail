@@ -15,7 +15,7 @@ function Drinks() {
   const [rows, setRows] = useState(20);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(20);
+  const [itemsPerPage, setItemsPerPage] = useState(24);
   const [currentItems, setCurrentItems] = useState([]);
 
   const getdrinks = async () => {
@@ -29,14 +29,14 @@ function Drinks() {
     }
   };
 
-  const calculateRange = (currentPage, itemsPerPage) => {
-    const start = (currentPage - 1) * itemsPerPage;
+  const calculateRange = (first, itemsPerPage) => {
+    const start = first;
     const end = start + itemsPerPage;
     return { start, end };
   };
 
-  const getCurrentItems = (allItems, range) => {
-    return allItems.slice(range.start, range.end);
+  const getCurrentItems = (drinks, range) => {
+    return drinks.slice(range.start, range.end);
   };
 
   useEffect(() => {
@@ -48,17 +48,15 @@ function Drinks() {
   useEffect(() => {
     getdrinks().then((data) => {
       setDrinks(data.drinks);
-      const range = calculateRange(currentPage, itemsPerPage);
+      const range = calculateRange(first, itemsPerPage);
       const items = getCurrentItems(data.drinks, range);
       setCurrentItems(items);
     });
   }, [first, rows]);
 
-  if (!drinks || drinks.length === 0)
-    return <p>No se encontro ninguna bebida</p>;
-
   const onPageChange = (event) => {
     setFirst(event.first);
+    setCurrentPage(event.page + 1);
   };
 
   return (
@@ -79,10 +77,11 @@ function Drinks() {
         first={first}
         rows={rows}
         totalRecords={120}
-        rowsPerPageOptions={[10, 20, 30]}
+        rowsPerPageOptions={[10]}
         onPageChange={onPageChange}
       />
     </div>
   );
 }
+
 export default Drinks;

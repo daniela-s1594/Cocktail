@@ -7,7 +7,7 @@
   justify-content: space-between;
   width: auto;
   height: auto;
-  background-color: #3c3744;
+  background-color: #0C1821;
 }
 
 .grid-container {
@@ -23,7 +23,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #af7595;
+  background-color: #0C1821;
+  border-style: double;
+  border-color: #af7595;
+  border-width: 10px;
   padding: 14px;
   border-radius: 15px;
   flex: 0 0 calc(19% - 1em); /* Make cards slightly smaller */
@@ -49,6 +52,7 @@
 
 .h2 > h2 {
   padding: 0.5em;
+  color: #92dce5;
 }
 
 .img > img {
