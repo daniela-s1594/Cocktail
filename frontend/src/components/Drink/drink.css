@@ -1,0 +1,19 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12.4em, 1fr));
+}
+
+.card {
+  background-color: #92dce5;
+}
+
+.card > img {
+  width: 12.4em;
+  height: auto;
+  border-radius: 15px;
+}
