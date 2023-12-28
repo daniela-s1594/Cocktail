@@ -62,22 +62,26 @@ function Drinks() {
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="grid-container">
         {currentItems?.map((drink, index) => (
           <div className="card" key={index}>
-            <h2>{drink.strDrink}</h2>
-            <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+            <div className="h2">
+              <h2>{drink.strDrink}</h2>
+            </div>
+            <div className="img">
+              <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+            </div>
           </div>
         ))}
-        <Paginator
-          first={first}
-          rows={rows}
-          totalRecords={120}
-          rowsPerPageOptions={[20]}
-          onPageChange={onPageChange}
-        />
       </div>
+      <Paginator
+        first={first}
+        rows={rows}
+        totalRecords={120}
+        rowsPerPageOptions={[10, 20, 30]}
+        onPageChange={onPageChange}
+      />
     </div>
   );
 }
