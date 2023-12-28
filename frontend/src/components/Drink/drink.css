@@ -5,15 +5,30 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12.4em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  background-color: #3c3744;
+  gap: 2em;
+  justify-content: stretch;
 }
 
 .card {
-  background-color: #92dce5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #af7595;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 15px;
+}
+
+.card > h2 {
+  padding: 0.5em;
 }
 
 .card > img {
-  width: 12.4em;
+  width: 10em;
   height: auto;
   border-radius: 15px;
+  margin: 0.5em;
 }
