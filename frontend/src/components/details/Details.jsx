@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./Details.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
@@ -7,42 +8,42 @@ import "primeicons/primeicons.css";
 
 const baseURL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=`;
 
-function Details() {
-  const [IdDrink, setIdDrink] = useState();
+const getDrink = async (idDrink) => {
+  try {
+    const response = await axios.get(`${baseURL}${idDrink}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data", error);
+  }
+};
 
-  const getdrink = async () => {
-    try {
-      const response = await axios.get(`${baseURL}11006`);
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching data", error);
-    }
-  };
+function Details() {
+  const { IdDrink } = useParams();
+  const [drink, setDrink] = useState([]);
 
   useEffect(() => {
-    getdrink().then((data) => {
-      // Asegúrate de que 'drinks' exista en los datos devueltos por la API
+    getDrink(IdDrink).then((data) => {
       if (data && data.drinks) {
-        setIdDrink(data.drinks);
+        setDrink(data.drinks);
       }
     });
-  }, []);
+  }, [IdDrink]);
 
   return (
     <div className="container">
       <div className="container-card">
-        {IdDrink?.map((drink, index) => (
+        {drink?.map((item, index) => (
           <div className="card" key={index}>
             <div className="img">
-              <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+              <img src={item.strDrinkThumb} alt={item.strDrink} />
             </div>
             <div className="description">
-              <h2>{drink.strDrink}</h2>
-              <p>{drink.strTags}</p>
-              <p>{drink.strCategory}</p>
-              <p>{drink.strAlcoholic}</p>
-              <p>{drink.strGlass}</p>
-              <p>{drink.strInstructions}</p>
+              <h2>{item.strDrink}</h2>
+              <p>{item.strTags}</p>
+              <p>{item.strCategory}</p>
+              <p>{item.strAlcoholic}</p>
+              <p>{item.strGlass}</p>
+              <p>{item.strInstructions}</p>
             </div>
           </div>
         ))}

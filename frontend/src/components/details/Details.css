@@ -27,8 +27,7 @@
   justify-content: center;
   align-items: center;
   background-color: #0c1821;
-  border-style: double;
-  border-color: #af7595;
+  border-style: double #af7595;
   border-width: 10px;
   padding: 14px;
   border-radius: 15px;
