@@ -8,7 +8,7 @@ import "primeicons/primeicons.css";
 
 const baseURL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=`;
 
-const getDrink = async (idDrink) => {
+const getDrink = async ({idDrink}) => {
   try {
     const response = await axios.get(`${baseURL}${idDrink}`);
     return response.data;
@@ -17,17 +17,17 @@ const getDrink = async (idDrink) => {
   }
 };
 
-function Details() {
-  const { IdDrink } = useParams();
+function Details({idDrink}) {
+  const { idDrink, setIdDrink } = useParams();
   const [drink, setDrink] = useState([]);
 
   useEffect(() => {
-    getDrink(IdDrink).then((data) => {
+    getDrink(idDrink).then((data) => {
       if (data && data.drinks) {
-        setDrink(data.drinks);
+        setDrink(data.drinks[0]);
       }
     });
-  }, [IdDrink]);
+  }, [idDrink]);
 
   return (
     <div className="container">

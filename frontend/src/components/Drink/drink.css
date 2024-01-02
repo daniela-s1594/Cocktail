@@ -4,6 +4,11 @@
   justify-content: space-between;
   width: 100%;
   background-color: #0c1821;
+  margin-left: 8em;
+}
+
+.paginator {
+  margin-right: 20em;
 }
 
 /* Grid container styles */
@@ -17,14 +22,10 @@
 
 /* Card styles */
 .card {
-  align-items: center;
   background-color: #0c1821;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 2px;
   border-color: #af7595;
-  border-radius: 14px;
+  border-radius: 15px;
   border-style: double;
   border-width: 9px;
 }

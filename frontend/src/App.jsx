@@ -6,12 +6,17 @@ import Details from "./components/details/Details";
 import Header from "./layout/header/header";
 
 function App() {
+  const [idDrink, setIdDrink] = useState(null);
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Drinks />} />
-        <Route path="/drink/:IdDrink" element={<Details />} />
+        <Route path="/" setIdDrink={setIdDrink} element={<Drinks />} />
+        <Route
+          path="/details:idDrink"
+          IdDrink={idDrink}
+          element={<Details />}
+        />
       </Routes>
     </BrowserRouter>
   );

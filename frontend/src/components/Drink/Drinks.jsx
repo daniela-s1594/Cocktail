@@ -30,7 +30,7 @@ const getCurrentItems = (drinks, range) => {
   return drinks.slice(range.start, range.end);
 };
 
-function Drinks() {
+function Drinks({ setIdDrinks }) {
   const [drinks, setDrinks] = useState([]);
   const [first, setFirst] = useState(0);
   const [rows, setRows] = useState(20);
@@ -69,13 +69,13 @@ function Drinks() {
             <div className="img">
               <Link className="link" to={`/details/${drink.idDrink}`}>
                 <img src={drink.strDrinkThumb} alt={drink.strDrink} />
-                <TbFileText className="icono-info" />
               </Link>
             </div>
           </div>
         ))}
       </div>
       <Paginator
+        className="paginator"
         first={first}
         rows={rows}
         totalRecords={120}
