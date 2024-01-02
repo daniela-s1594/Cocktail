@@ -13,6 +13,7 @@ function Details() {
   const { idDrink } = useParams(); // Obtiene el ID del coctel de la URL
   const [drink, setDrink] = useState(null); // Estado inicial para los detalles del coctel
   const navigate = useNavigate();
+  
   const getDrink = async () => {
     try {
       const response = await axios.get(`${baseURL}${idDrink}`);
