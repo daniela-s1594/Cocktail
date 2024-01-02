@@ -63,12 +63,16 @@ function Drinks({ setIdDrinks }) {
       <div className="grid-container">
         {currentItems?.map((drink, index) => (
           <div className="card" key={index}>
-            {/* <div className="h2">
-              <h2>{drink.strDrink}</h2>
-            </div> */}
             <div className="img">
               <Link className="link" to={`/details/${drink.idDrink}`}>
                 <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+                <div className="description">
+                  <h2>{drink.strDrink}</h2>
+                  <p>{drink.strCategory}</p>
+                  <p>{drink.strCategory}</p>
+                  <p>{drink.strGlass}</p>
+                  <p>{drink.strInstructions}</p>
+                </div>
               </Link>
             </div>
           </div>
