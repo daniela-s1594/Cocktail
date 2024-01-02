@@ -7,6 +7,7 @@ function Header() {
   return (
     <header>
       <nav>
+        <h1>COCKTAIL CATALOG</h1>
         <Link className="link" to="/">
           <TbHome2 className="icono" />
         </Link>

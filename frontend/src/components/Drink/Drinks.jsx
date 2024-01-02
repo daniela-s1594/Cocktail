@@ -60,6 +60,7 @@ function Drinks({ setIdDrinks }) {
 
   return (
     <div className="container">
+
       <div className="grid-container">
         {currentItems?.map((drink, index) => (
           <div className="card" key={index}>

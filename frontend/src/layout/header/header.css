@@ -39,3 +39,10 @@ nav {
   margin: 0;
   padding: 0;
 }
+
+h1 {
+  margin-left: 0;
+  margin-right: 15em;
+  color: #92dce5;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
