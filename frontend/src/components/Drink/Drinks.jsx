@@ -35,7 +35,7 @@ function Drinks({ setIdDrinks }) {
   const [first, setFirst] = useState(0);
   const [rows, setRows] = useState(20);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(27);
+  const [itemsPerPage, setItemsPerPage] = useState(32);
   const [currentItems, setCurrentItems] = useState([]);
 
   useEffect(() => {

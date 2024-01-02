@@ -4,9 +4,10 @@
 }
 
 header {
+  z-index: initial;
   background-color: #0c1821;
   width: 100vw;
-  height: 20%;
+  height: 30%;
   padding: 2em;
   display: flex;
   justify-content: center;
