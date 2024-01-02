@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Paginator } from "primereact/paginator";
 import { TbFileText } from "react-icons/tb";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
@@ -35,7 +35,7 @@ function Drinks({ setIdDrinks }) {
   const [first, setFirst] = useState(0);
   const [rows, setRows] = useState(20);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(24);
+  const [itemsPerPage, setItemsPerPage] = useState(27);
   const [currentItems, setCurrentItems] = useState([]);
 
   useEffect(() => {
@@ -64,28 +64,32 @@ function Drinks({ setIdDrinks }) {
         {currentItems?.map((drink, index) => (
           <div className="card" key={index}>
             <div className="img">
-              <Link className="link" to={`/details/${drink.idDrink}`}>
+              <Link
+                to={`/details/${drink.idDrink}`}
+                state={{ from: window.location.pathname }}
+              >
                 <img src={drink.strDrinkThumb} alt={drink.strDrink} />
                 <div className="description">
                   <h2>{drink.strDrink}</h2>
-                  <p>{drink.strCategory}</p>
-                  <p>{drink.strCategory}</p>
-                  <p>{drink.strGlass}</p>
-                  <p>{drink.strInstructions}</p>
                 </div>
               </Link>
             </div>
           </div>
         ))}
       </div>
-      <Paginator
-        className="paginator"
-        first={first}
-        rows={rows}
-        totalRecords={120}
-        rowsPerPageOptions={[10]}
-        onPageChange={onPageChange}
-      />
+      {currentItems.length === 0 && (
+        <p className="noItems">No hay más elementos para mostrar</p>
+      )}
+      <div className="container-paginator">
+        <Paginator
+          className="paginator"
+          first={first}
+          rows={rows}
+          totalRecords={120}
+          rowsPerPageOptions={[10]}
+          onPageChange={onPageChange}
+        />
+      </div>
     </div>
   );
 }

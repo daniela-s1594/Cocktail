@@ -8,13 +8,19 @@ function Header() {
     <header>
       <nav>
         <Link className="link" to="/">
-          <TbHome2 />
+          <TbHome2 className="icono" />
         </Link>
         <div>
           <Link className="link" to="/">
             Inicio
           </Link>
         </div>
+        <div>
+          <Link className="link" to="/about">
+            Nosotros
+          </Link>
+        </div>
+        <div></div>
       </nav>
     </header>
   );
