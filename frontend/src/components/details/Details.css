@@ -69,8 +69,8 @@ body {
   display: flex;
   flex-direction: column;
   color: #af7595;
-  margin: 0;
-  font-size: small;
+  margin: 3px;
+  font-size: medium;
 }
 
 .detail-description > h4 {
