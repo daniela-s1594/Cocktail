@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-left: 3em;
+  margin-left: 1em;
   display: flex;
 }
 
@@ -27,7 +27,7 @@ body {
 /* Grid container styles */
 .grid-container {
   display: grid;
-  gap: 4px;
+  gap: 0.6em;
   grid-template-columns: repeat(auto-fill, minmax(200px, 15px));
   margin-bottom: 3%;
   width: 100%;

@@ -31,6 +31,17 @@ function Details() {
     });
   }, [idDrink]); // Dependencia del efecto: se ejecutará cada vez que cambie el ID del coctel
 
+  let ingredients = [];
+  if (drink) {
+    ingredients = [];
+    for (let i = 1; i <= 15; i++) {
+      const ingredient = drink[`strIngredient${i}`];
+      if (ingredient) {
+        ingredients.push(ingredient);
+      }
+    }
+  }
+
   // Si los detalles del coctel aún no se han cargado, muestra un mensaje de carga
   if (!drink) {
     return <p>Cargando...</p>;
@@ -49,12 +60,19 @@ function Details() {
             <p>{drink.strCategory}</p>
             <p>{drink.strAlcoholic}</p>
             <p>{drink.strGlass}</p>
+            <h4>Ingredients</h4>
+            <ul>
+              {ingredients.map((ingredient, index) => (
+                <li key={index}>{ingredient}</li>
+              ))}
+            </ul>
+            <h4>Instructions</h4>
             <p>{drink.strInstructions}</p>
           </div>
         </div>
       </div>
-      <Button  onClick={() => navigate(-1)}>
-        Regresar
+      <Button className="button" onClick={() => navigate(-1)}>
+        Back
       </Button>
     </div>
   );

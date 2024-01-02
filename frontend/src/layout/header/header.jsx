@@ -12,12 +12,12 @@ function Header() {
         </Link>
         <div>
           <Link className="link" to="/">
-            Inicio
+            Home
           </Link>
         </div>
         <div>
           <Link className="link" to="/about">
-            Nosotros
+            About
           </Link>
         </div>
         <div></div>
